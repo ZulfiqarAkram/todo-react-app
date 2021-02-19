@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
-import createNewTodoItem from './todo'
+import todoOperations from './todo'
 
-const rootReducers = () => combineReducers({createNewTodoItem});
+const rootReducers = () => combineReducers({todo:todoOperations});
 
 export default rootReducers;

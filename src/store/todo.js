@@ -3,5 +3,5 @@ import rootReducers from '../reducers/index'
 
 
 export default function configureStore() {
-    return createStore(rootReducers)
+    return
 }

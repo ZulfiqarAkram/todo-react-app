@@ -1,10 +1,20 @@
 import {SAVE_NEW_ITEM,EMPTY_TODO_LIST} from '../actions/todo'
 
 const INITIAL_STATE={
-    todoItemsList:[]
+    todoItemsList:[
+        {
+            name:'First thing',
+            isDone:false
+        },
+        {
+            name:'Second thing',
+            isDone:false
+        }
+    ]
 };
 
-const createNewTodoItem=(state=INITIAL_STATE,action)=>{
+const todoOperations=(state=INITIAL_STATE,action)=>{
+    console.log("createNewTodoItem called")
     switch (action.type) {
         case SAVE_NEW_ITEM:
             return {
@@ -19,4 +29,4 @@ const createNewTodoItem=(state=INITIAL_STATE,action)=>{
     }
 };
 
-export default createNewTodoItem;
+export default todoOperations;

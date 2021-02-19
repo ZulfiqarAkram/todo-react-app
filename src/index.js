@@ -1,14 +1,15 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import {Provider} from 'react-redux';
 import App from './App';
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import {Provider} from 'react-redux'
-import configureStore from './store/todo'
-import {createStore} from "redux";
-import rootReducers from "./reducers";
+import store from './store/todo'
 
-
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root'));
 registerServiceWorker();

@@ -1,16 +1,33 @@
-export const EMPTY_TODO_LIST='EMPTY_TODO_LIST';
-export const SAVE_NEW_ITEM='SAVE_NEW_ITEM';
+export const ADD_ITEM = 'ADD_ITEM';
+export const TICK_TODO = 'TICK_TODO';
+export const UPDATE_ITEM = 'UPDATE_ITEM';
+export const REMOVE_TODO = 'REMOVE_TODO';
 
-export const saveNewItem=(payload)=>{
+export const addItem = (payload) => {
     return {
-        type:SAVE_NEW_ITEM,
+        type: ADD_ITEM,
         payload
     }
 };
 
-export const emptyTodoList=(payload)=>{
+export const tickTodo = (payload, index) => {
     return {
-        type:EMPTY_TODO_LIST,
-        payload
+        type: TICK_TODO,
+        payload,
+        index
+    }
+};
+
+export const updateTodo = (index,todoItemName) => {
+    return {
+        type: UPDATE_ITEM,
+        index,
+        todoItemName
+    }
+};
+export const removeTodo = (index) => {
+    return {
+        type: REMOVE_TODO,
+        index
     }
 };

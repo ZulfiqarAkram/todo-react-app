@@ -1,4 +1,4 @@
-import {SAVE_NEW_ITEM, EMPTY_TODO_LIST} from '../actions/todo'
+import {ADD_ITEM, TICK_TODO, UPDATE_ITEM,REMOVE_TODO} from '../actions/todo'
 
 const INITIAL_STATE = {
     todoItemsList: [
@@ -10,13 +10,13 @@ const INITIAL_STATE = {
             name: 'Second thing',
             isDone: false
         }
-    ]
+    ],
 };
 
 const todo = (state = INITIAL_STATE, action) => {
-    console.log("createNewTodoItem called");
     switch (action.type) {
-        case SAVE_NEW_ITEM:
+        case ADD_ITEM:
+            console.log("ADD_ITEM");
             let todoItem = [...state.todoItemsList];
             todoItem.push({
                 name: action.payload,
@@ -26,8 +26,26 @@ const todo = (state = INITIAL_STATE, action) => {
                 ...state,
                 todoItemsList: [...todoItem]
             };
-        case EMPTY_TODO_LIST:
-            return {...INITIAL_STATE};
+        case TICK_TODO:
+            console.log("TICK_TODO");
+
+            let todoItemChecked = [...state.todoItemsList];
+            todoItemChecked[action.index].isDone = action.payload;
+            return {
+                ...state,
+                todoItemsList: [...todoItemChecked]
+            };
+        case UPDATE_ITEM:
+            console.log("UPDATE_ITEM");
+            let updateItem = [...state.todoItemsList];
+            updateItem[action.index].name = action.todoItemName;
+            return {...state, todoItemsList: [...updateItem]};
+        case REMOVE_TODO:
+            console.log("REMOVE_ITEM");
+            let removeItem = [...state.todoItemsList];
+            removeItem.splice(action.index,1);
+            return {...state, todoItemsList: [...removeItem]};
+
         default:
             return state
 

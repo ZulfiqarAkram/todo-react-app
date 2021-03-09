@@ -1,4 +1,4 @@
-import {ADD_ITEM, TICK_TODO, UPDATE_ITEM,REMOVE_TODO} from '../actions/todo'
+import {ADD_ITEM, TICK_TODO, UPDATE_ITEM, REMOVE_TODO} from '../actions/todo'
 
 const INITIAL_STATE = {
     todoItemsList: [
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
             name: 'Second thing',
             isDone: false
         }
-    ],
+    ]
 };
 
 const todo = (state = INITIAL_STATE, action) => {
@@ -28,7 +28,6 @@ const todo = (state = INITIAL_STATE, action) => {
             };
         case TICK_TODO:
             console.log("TICK_TODO");
-
             let todoItemChecked = [...state.todoItemsList];
             todoItemChecked[action.index].isDone = action.payload;
             return {

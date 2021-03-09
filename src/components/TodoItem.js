@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
-import {Col, ListGroup, Row, Form, Button,ButtonGroup} from 'react-bootstrap'
+import {Col, ListGroup, Row, Form, Button, ButtonGroup} from 'react-bootstrap'
 import {
     tickTodo,
     updateTodo,
@@ -52,7 +52,7 @@ const TodoItem = ({todoList, tickTodo, updateTodo,removeTodo}) => {
                                      onDoubleClick={() => DoubleClicked(index)}>
                                     {editIndex === index ?
                                         <Form inline>
-                                            <Form.Group controlId="formBasicEmail">
+                                            <Form.Group controlId="formBasic">
                                                 <Form.Control type="text" placeholder="Enter todo item"
                                                               value={editItem}
                                                               onChange={(e) => setEditItem(e.target.value)}/>
